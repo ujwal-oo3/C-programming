@@ -1,0 +1,37 @@
+#include<stdio.h>
+
+float avg(int,int);
+
+void main()
+
+{
+
+int a[]={10,20,30,40,50};
+
+int n=sizeof(a)/sizeof(a[0]);
+
+float average=avg(a[],n);
+
+printf("Average of array elements:%f\n",avaerage);
+
+}
+
+float avg(int a[], int n)
+
+{
+
+int s=0;
+
+for(int i=0;i<=n;i++)
+
+{
+
+sum=a[i]+a[i+1];
+
+}
+
+sum=sum/n;
+
+return sum;
+
+}
