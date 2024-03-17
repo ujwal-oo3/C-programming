@@ -1,0 +1,182 @@
+## WAP using circular doubly linked list to swap the data of 1st and last node
+
+#include<stdio.h>
+
+#include<stdlib.h>
+
+struct Node
+
+{
+
+    int d;
+
+    struct Node *llink;
+
+    struct Node *rlink;
+
+};
+
+typedef struct Node *node;
+
+void display(node);
+
+node insert(node);
+
+node create();
+
+node swap(node);
+
+int main()
+
+{
+
+    node f=NULL;
+
+    int c,n;
+
+    while(1)
+
+    {
+
+        printf("\n1.Insert\n2.Display\n3.Swap\n");
+
+        scanf("%d", &c);
+
+        switch(c)
+
+        {
+
+            case 1: f=insert(f);
+
+            break;
+
+            case 2:f=display(f);
+
+            break;
+
+            case 3:swap(f);
+
+            break;
+
+            default: exit(0);
+
+        }
+
+    }
+
+
+
+}
+
+node create()
+
+{
+
+    node n;
+
+    n=malloc(sizeof(struct Node));
+
+    printf("Data=");
+
+    scanf("%d", &n->d);
+
+    n->rlink=n;
+
+    n->llink=n;
+
+    return n;
+
+}
+
+node insert(node f)
+
+{
+
+    node c;
+
+    node t=create();
+
+    if(f==NULL)
+
+        return t;
+
+    c=f->llink;
+
+    c->rlink=t;
+
+    t->llink=c;
+
+    t->rlink=f;
+
+    f->llink=t;
+
+    return f;
+}
+
+void display(node f)
+
+{
+
+    node c;
+
+    if(f==NULL)
+
+    {
+
+        printf("The list doesn't exist\n");
+
+    }c=f;
+
+    while(c->rlink!=f)
+
+    {
+
+        printf("%d\t", c->d);
+
+        c=c->rlink;
+
+    }
+
+     printf("%d\t", c->d);
+
+}
+
+node swap(node f)
+
+{
+
+    node c,t,p;
+
+    c=f;
+
+    if(f==NULL)
+
+    {
+
+        printf("list is empty\n");
+
+        return f;
+
+    }
+
+   c=f->llink;
+
+    t=f->rlink;
+
+    p=c->llink;
+
+    c->rlink=t;
+
+    t->llink=c;
+
+    c->llink=f;
+
+    f->llink=p;
+
+    p->rlink=f;
+
+    f->rlink=c;
+
+    return c;
+
+}
