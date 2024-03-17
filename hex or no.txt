@@ -1,0 +1,23 @@
+#include<stdio.h>
+
+#include<ctype.h>
+
+void main()
+
+{
+
+char t;
+
+printf("Enter the character:");
+
+scanf("%c",&t);
+
+if(isdigit(t))
+
+printf("The entered character is hexadecimal");
+
+else
+
+printf("Entered character is not hexadecimal ");
+
+}

@@ -1,0 +1,41 @@
+#include<stdio.h>
+
+void fib(int);
+
+void main()
+
+{
+
+int n;
+
+printf("Enter the number of terms");
+
+scanf("%d",&n);
+
+fib(n);
+
+}
+
+void fib(int n)
+
+{
+
+int p=0,c=1,next,i;
+
+printf("Fibonacci series:");
+
+for(i=1;i<=n;i++)
+
+{
+
+printf("%d",p);
+
+next=p+c;
+
+p=c;
+
+c=next;
+
+}
+
+}
